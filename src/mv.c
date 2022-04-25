@@ -16,15 +16,18 @@ int main(int argc, char **argv)
     bool interactive = false;
     bool force = false;
 
-    while ((opt = getopt(argc, argv, "if")) != -1)
+    while ((opt = getopt(argc, argv, "ifh")) != -1)
     {
         switch (opt)
         {
         case 'i':
-        interactive = true;
+            interactive = true;
             break;
         case 'f':
-        force = true;
+            force = true;
+            break;
+        case 'h':
+            show_usage();
             break;
         }
     }
@@ -54,14 +57,38 @@ int main(int argc, char **argv)
 void move_file(char *src, char *target)
 {
     struct stat file;
-    char *targetpath = NULL;
+    char *srcpath = NULL;
+    char *targetpath;
+
+    // if src has subfolders, get the basename
+    char *path = strrchr(src, '/');
+    if (path != NULL)
+    {
+        path += 1;
+        srcpath = path;
+    }
+    else
+    {
+        srcpath = src;
+    }
+
+    // if target is a folder, create path from inside of it
     if (stat(target, &file) == 0 && S_ISDIR(file.st_mode))
     {
-        sprintf("%s/%s", targetpath, target, src);
+        sprintf(targetpath, "%s/%s", target, srcpath);
     }
     else
     {
         targetpath = target;
     }
     rename(src, targetpath);
+}
+
+void show_usage()
+{
+    puts("\
+    Usage: mv [OPTION]... SOURCE DEST\n\
+    Rename SOURCE to DEST\n\n\
+    -f\t\tdo not prompt before overwriting\n\
+    -i\t\tprompt before overwrite");
 }
