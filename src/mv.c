@@ -38,6 +38,7 @@ int main(int argc, char **argv)
         {
             goto moving_file;
         }
+        // check is file exists
         if (interactive && access(argv[optind], F_OK) == 0)
         {
             char ans[4096];
