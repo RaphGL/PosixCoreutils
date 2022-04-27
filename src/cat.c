@@ -2,15 +2,17 @@
 #include <stdlib.h>
 #include <getopt.h>
 
+void show_usage(void);
+
 int main(int argc, char **argv)
 {
     int opt;
     FILE *file;
     char byte;
 
-    while (opt = getopt(argc, argv, "u") != -1)
+    while (opt = getopt(argc, argv, "uh") != -1)
     {
-        if (opt == 'u')
+        if (opt == 'h')
         {
         }
     }
@@ -25,4 +27,13 @@ int main(int argc, char **argv)
     }
     fclose(file);
     return 0;
+}
+
+void show_usage(void)
+{
+    puts("\
+    Usage: cat [OPTION]... [FILE]...\n\
+    Concatenate FILE(s) to standard output.\n\n\
+    -u\t\tignored\n\
+    -h\t\tShow this message");
 }

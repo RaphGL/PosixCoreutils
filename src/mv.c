@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-void show_usage();
+void show_usage(void);
 void move_file(char *src, char *target);
 
 int main(int argc, char **argv)
@@ -85,7 +85,7 @@ void move_file(char *src, char *target)
     rename(src, targetpath);
 }
 
-void show_usage()
+void show_usage(void)
 {
     puts("\
     Usage: mv [OPTION]... SOURCE DEST\n\
