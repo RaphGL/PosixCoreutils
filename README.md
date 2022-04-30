@@ -24,9 +24,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -36,7 +33,6 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -44,11 +40,6 @@
 
 This is a project made so I can learn more about C by writing POSIX core utilities, this is not meant to be used as a core utilities alternative for other people, it might have bugs or be written in a weird way and I cannot swear to keep maintaining it.
 
-
-### Built With
-
-- [Lib1](link.com)
-- [Lib2](link.com)
 
 <!-- GETTING STARTED -->
 
