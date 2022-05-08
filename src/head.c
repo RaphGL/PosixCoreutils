@@ -46,4 +46,11 @@ int main(int argc, char **argv)
     return 0;
 }
 
-void show_usage(void) {}
+void show_usage(void)
+{
+    puts("\
+    Usage: head [OPTION]... [FILE]...\n\
+    Print the first 10 lines of each FILE to standard output.\n\n\
+    -n\t\tprint n number of lines\n\
+    -h\t\tshow this message");
+}
