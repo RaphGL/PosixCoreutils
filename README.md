@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/RaphGL/PosixCoreutils">
-  <h1>POSIX Core Utilities</h1>
+  <h1 align="center">POSIX Core Utilities</h1>
   </a>
 
   <h3 align="center">An exercise on writing POSIX core utilities</h3>
@@ -47,7 +47,17 @@ This is a project made so I can learn more about C by writing POSIX core utiliti
 
 ### Installation
 
-TODO
+To compile run:
+```sh
+$ make
+```
+They will be outputted to the `build` folder.
+
+To compile and install run:
+```sh
+$ make install 
+```
+
 
 <!-- USAGE EXAMPLES -->
 
