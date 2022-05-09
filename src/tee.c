@@ -16,7 +16,7 @@ int main(int argc, char **argv)
             break;
         case 'h':
             show_usage();
-            return;
+            return 0;
             break;
         }
     }

@@ -1,7 +1,7 @@
 CC=gcc
-CFLAGS=-std=c11
+CFLAGS=-std=c11 -D_POSIX_C_SOURCE
 
-all: echo mv true cat wc basename dirname cmp head false tee
+all: echo mv true cat wc basename dirname cmp head false tee kill
 
 echo: src/echo.c
 mv: src/mv.c
@@ -14,7 +14,8 @@ cmp: src/cmp.c
 head: src/head.c
 false: src/false.c
 tee: src/tee.c
+kill: src/kill.c
 
-echo mv true cat wc basename cmp head false tee:
+echo mv true cat wc basename cmp head false tee kill:
 	@mkdir -p build
 	$(CC) $(CFLAGS) $^ -o build/$@ 
