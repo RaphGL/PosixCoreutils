@@ -4,6 +4,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+void show_usage(void);
+
 char expanded[BUFSIZ];
 char *expandln(char *string, int tablist);
 
@@ -19,6 +21,8 @@ int main(int argc, char **argv)
             tablist = atoi(optarg);
             break;
         case 'h':
+            show_usage();
+            exit(EXIT_SUCCESS);
             break;
         }
     }
@@ -75,4 +79,14 @@ char *expandln(char *string, int tablist)
         }
     }
     return expanded;
+}
+
+void show_usage()
+{
+    puts("\
+    Usage: expand [OPTION]... [FILE]...\n\
+    Convert tabs in each FILE to spaces, writing to standard output.\n\
+    \n\
+    -t, --tabs=N\t     have tabs N characters apart, not 8\
+    ");
 }
