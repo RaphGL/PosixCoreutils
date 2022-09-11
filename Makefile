@@ -1,5 +1,7 @@
 CC=gcc
-CFLAGS=-std=c11 -D_POSIX_C_SOURCE
+CFLAGS=-std=c11 -Wall
+
+PROGRAMS=expand
 
 all: echo mv true cat wc basename dirname cmp head false tee kill mkdir
 
@@ -16,7 +18,12 @@ false: src/false.c
 tee: src/tee.c
 kill: src/kill.c
 mkdir: src/mkdir.c
+expand: src/expand.c
 
-echo mv true cat wc basename cmp head false tee kill mkdir:
+
+$(PROGRAMS):
 	@mkdir -p build
 	$(CC) $(CFLAGS) $^ -o build/$@ 
+
+clean:
+	rm -rf build/
