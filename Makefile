@@ -1,9 +1,7 @@
 CC=gcc
 CFLAGS=-std=c11 -Wall
 
-PROGRAMS=expand
-
-all: echo mv true cat wc basename dirname cmp head false tee kill mkdir
+PROGRAMS=echo mv true cat wc basename dirname cmp head false tee kill mkdir expand xargs
 
 echo: src/echo.c
 mv: src/mv.c
@@ -19,8 +17,10 @@ tee: src/tee.c
 kill: src/kill.c
 mkdir: src/mkdir.c
 expand: src/expand.c
+xargs: src/xargs.c
 
 
+all: $(PROGRAMS)
 $(PROGRAMS):
 	@mkdir -p build
 	$(CC) $(CFLAGS) $^ -o build/$@ 

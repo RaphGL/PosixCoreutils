@@ -27,6 +27,7 @@ int main(int argc, char **argv)
         }
     }
 
+    // if there are arguments to the command
     if (argc != optind)
     {
 
@@ -47,7 +48,7 @@ int main(int argc, char **argv)
             }
         }
     }
-    // Piped expand
+    // Else use a pipe
     else
     {
         char pipe_string[BUFSIZ];
